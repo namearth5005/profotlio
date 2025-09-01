@@ -86,7 +86,7 @@ const experienceEntries: TimeLine_01Entry[] = [
 
 export default function ExperienceSection() {
   return (
-    <div className="bg-secondary/5">
+    <div className="bg-secondary/5" id="experience">
       <TimeLine_01
         title="My Journey & Experience"
         description="Follow my development journey from learning the fundamentals to building full-stack applications and launching my professional portfolio."
