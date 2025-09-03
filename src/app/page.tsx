@@ -1,30 +1,25 @@
 import { Preview } from "@/components/demo"
-import AboutSection from "@/components/sections/about"
-import ProjectsSection from "@/components/sections/projects"
 import ExperienceSection from "@/components/sections/experience"
-import ContactSection from "@/components/sections/contact"
-import PortfolioNavbar from "@/components/ui/portfolio-navbar"
+import NeuralBackground from "@/components/ui/neural-background"
 
 export default function Home() {
   return (
-    <>
-      <PortfolioNavbar />
-      <main className="min-h-screen">
+    <div className="relative min-h-screen">
+      {/* Global Neural Background - dynamically sized to full document height */}
+      <NeuralBackground 
+        intensity={1.0} 
+        overlay=""
+        animate={true}
+      />
+      
+      {/* Content */}
+      <div className="relative z-10">
         {/* Hero Section */}
         <Preview />
         
-        {/* About Me Section */}
-        <AboutSection />
-        
-        {/* Featured Projects Section */}
-        <ProjectsSection />
-        
-        {/* Experience & Journey Section (Using Timeline) */}
+        {/* Timeline Section */}
         <ExperienceSection />
-        
-        {/* Contact Section */}
-        <ContactSection />
-      </main>
-    </>
+      </div>
+    </div>
   )
 }

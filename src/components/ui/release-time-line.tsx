@@ -154,13 +154,13 @@ export default function TimeLine_01({
   }, []);
 
   return (
-    <section className="py-32">
+    <section className="pb-32">
       <div className="container">
         <div className="mx-auto max-w-3xl">
-          <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl text-white">
             {title}
           </h1>
-          <p className="mb-6 text-base text-muted-foreground md:text-lg">
+          <p className="mb-6 text-base text-white/70 md:text-lg">
             {description}
           </p>
         </div>
@@ -180,15 +180,15 @@ export default function TimeLine_01({
                 <div className="top-8 flex h-min w-64 shrink-0 items-center gap-4 md:sticky">
                   <div className="flex items-center gap-3">
                     <div className={`p-2 rounded-lg ${
-                      isActive ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                      isActive ? "bg-cyan-400 text-black" : "bg-white/10 text-white/80"
                     }`}>
                       <entry.icon className="h-4 w-4" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-sm font-medium">
+                      <span className="text-sm font-medium text-white">
                         {entry.title}
                       </span>
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs text-white/60">
                         {entry.subtitle}
                       </span>
                     </div>
@@ -207,8 +207,8 @@ export default function TimeLine_01({
                   className={
                     "flex flex-col rounded-2xl border p-3 transition-all duration-300 " +
                     (isActive
-                      ? "border-gray-50 dark:border-gray-800 bg-gray-50 dark:bg-black shadow-lg"
-                      : "border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-black")
+                      ? "border-cyan-400/50 bg-white/10 backdrop-blur-sm shadow-lg"
+                      : "border-white/10 bg-white/5 backdrop-blur-sm")
                   }
                 >
                   {entry.image && (
@@ -225,7 +225,7 @@ export default function TimeLine_01({
                       <h2
                         className={
                           "text-md font-medium leading-tight tracking-tight md:text-lg transition-colors duration-200 " +
-                          (isActive ? "text-foreground" : "text-foreground/70")
+                          (isActive ? "text-white" : "text-white/80")
                         }
                       >
                         {entry.title}
@@ -236,8 +236,8 @@ export default function TimeLine_01({
                         className={
                           "text-xs leading-relaxed md:text-sm transition-all duration-300 " +
                           (isActive 
-                            ? "text-muted-foreground line-clamp-none" 
-                            : "text-muted-foreground/80 line-clamp-2")
+                            ? "text-white/70 line-clamp-none" 
+                            : "text-white/60 line-clamp-2")
                         }
                       >
                         {entry.description}
@@ -262,7 +262,7 @@ export default function TimeLine_01({
                                 {entry.items.map((item, itemIndex) => (
                                   <li 
                                     key={itemIndex} 
-                                    className="flex items-start gap-2 text-sm text-muted-foreground"
+                                    className="flex items-start gap-2 text-sm text-white/70"
                                   >
                                     <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60 flex-shrink-0" />
                                     <span className="leading-relaxed">{item}</span>

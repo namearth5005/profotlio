@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Mail, Github, Linkedin, Download, Send, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import NeuralBackground from "@/components/ui/neural-background";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -28,8 +29,15 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-24 bg-secondary/10" id="contact">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section className="py-16 relative overflow-hidden" id="contact">
+      {/* Neural Background with minimal intensity */}
+      <NeuralBackground 
+        intensity={0.1} 
+        overlay="from-black/80 via-black/70 to-black/75"
+        animate={false}
+      />
+      
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,9 +45,9 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Let's Work Together</h2>
+          <div className="w-20 h-1 bg-cyan-400 mx-auto mb-8"></div>
+          <p className="text-lg text-white/75 max-w-2xl mx-auto">
             I'm always interested in hearing about new opportunities and exciting projects. 
             Let's discuss how we can bring your ideas to life.
           </p>
@@ -56,7 +64,7 @@ export default function ContactSection() {
           >
             <div>
               <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-white/70 leading-relaxed mb-8">
                 Whether you have a project in mind, want to collaborate, or just want to say hello, 
                 I'd love to hear from you. I typically respond within 24 hours.
               </p>
@@ -69,14 +77,14 @@ export default function ContactSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:shadow-sm transition-shadow"
+                className="flex items-center gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/15 transition-all"
               >
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold">Email</h4>
-                  <p className="text-sm text-muted-foreground">nam.bouchara@example.com</p>
+                  <h4 className="font-semibold text-white">Email</h4>
+                  <p className="text-sm text-white/70">nam.bouchara@example.com</p>
                 </div>
               </motion.div>
 
@@ -85,14 +93,14 @@ export default function ContactSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:shadow-sm transition-shadow"
+                className="flex items-center gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/15 transition-all"
               >
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold">Location</h4>
-                  <p className="text-sm text-muted-foreground">Available for remote work</p>
+                  <h4 className="font-semibold text-white">Location</h4>
+                  <p className="text-sm text-white/70">Available for remote work</p>
                 </div>
               </motion.div>
 
@@ -101,14 +109,14 @@ export default function ContactSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:shadow-sm transition-shadow"
+                className="flex items-center gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/15 transition-all"
               >
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold">Response Time</h4>
-                  <p className="text-sm text-muted-foreground">Within 24 hours</p>
+                  <h4 className="font-semibold text-white">Response Time</h4>
+                  <p className="text-sm text-white/70">Within 24 hours</p>
                 </div>
               </motion.div>
             </div>
@@ -162,7 +170,7 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors"
+                    className="w-full px-3 py-2 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-colors text-white placeholder-white/50"
                     placeholder="Your full name"
                   />
                 </div>
@@ -177,7 +185,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors"
+                    className="w-full px-3 py-2 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-colors text-white placeholder-white/50"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -194,7 +202,7 @@ export default function ContactSection() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors"
+                  className="w-full px-3 py-2 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-colors text-white placeholder-white/50"
                   placeholder="What's this about?"
                 />
               </div>
@@ -210,7 +218,7 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-3 py-2 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors resize-none"
+                  className="w-full px-3 py-2 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-colors resize-none"
                   placeholder="Tell me about your project or idea..."
                 />
               </div>
@@ -221,7 +229,7 @@ export default function ContactSection() {
               </Button>
             </form>
             
-            <p className="text-xs text-muted-foreground mt-4 text-center">
+            <p className="text-xs text-white/70 mt-4 text-center">
               I'll get back to you as soon as possible. Usually within 24 hours.
             </p>
           </motion.div>
@@ -236,7 +244,7 @@ export default function ContactSection() {
           className="mt-16 text-center p-8 bg-primary/5 rounded-2xl border border-primary/20"
         >
           <h3 className="text-2xl font-bold mb-4">Ready to start a project?</h3>
-          <p className="text-muted-foreground mb-6">
+          <p className="text-white/70 mb-6">
             I'm available for freelance work and full-time opportunities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

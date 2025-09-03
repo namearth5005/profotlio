@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ExternalLink, Github, Code, Database, Smartphone, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import NeuralBackground from "@/components/ui/neural-background";
 
 const projects = [
   {
@@ -60,25 +61,35 @@ export default function ProjectsSection() {
   const otherProjects = projects.filter(project => !project.featured);
 
   return (
-    <section className="py-24 bg-secondary/10" id="projects">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section className="py-16 relative overflow-hidden" id="projects">
+      {/* Neural Background with reduced intensity */}
+      <NeuralBackground 
+        intensity={0.3} 
+        overlay="from-black/60 via-black/40 to-black/50"
+        animate={false}
+      />
+      
+      {/* Connecting gradient line */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-12 bg-gradient-to-b from-cyan-400/40 to-transparent z-10"></div>
+      
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Featured Projects</h2>
+          <div className="w-20 h-1 bg-cyan-400 mx-auto mb-6"></div>
+          <p className="text-lg text-white/75 max-w-2xl mx-auto">
             A showcase of my best work demonstrating my skills in full-stack development, 
             Python programming, and problem-solving.
           </p>
         </motion.div>
 
         {/* Featured Projects */}
-        <div className="grid gap-8 mb-16">
+        <div className="grid gap-6 mb-12">
           {featuredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -127,15 +138,15 @@ export default function ProjectsSection() {
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-sm text-primary font-medium">{project.category}</span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <h3 className="text-2xl font-bold mb-4 text-white">{project.title}</h3>
+                  <p className="text-white/70 leading-relaxed">
                     {project.description}
                   </p>
                 </div>
 
                 {/* Tech Stack */}
                 <div>
-                  <h4 className="font-semibold mb-3">Technologies Used:</h4>
+                  <h4 className="font-semibold mb-3 text-white">Technologies Used:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
@@ -176,7 +187,7 @@ export default function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-2xl font-bold mb-8 text-center"
+              className="text-2xl font-bold mb-8 text-center text-white"
             >
               Other Notable Projects
             </motion.h3>
@@ -189,19 +200,19 @@ export default function ProjectsSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="p-6 bg-background rounded-2xl border border-border hover:shadow-lg transition-shadow duration-300"
+                  className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-2 bg-primary/10 rounded-lg">
                       <project.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold">{project.title}</h4>
+                      <h4 className="font-semibold text-white">{project.title}</h4>
                       <span className="text-sm text-primary">{project.category}</span>
                     </div>
                   </div>
                   
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-sm text-white/70 mb-4">
                     {project.description}
                   </p>
                   
@@ -209,13 +220,13 @@ export default function ProjectsSection() {
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-secondary text-xs rounded"
+                        className="px-2 py-1 bg-white/20 text-white text-xs rounded"
                       >
                         {tag}
                       </span>
                     ))}
                     {project.tags.length > 3 && (
-                      <span className="px-2 py-1 text-xs text-muted-foreground">
+                      <span className="px-2 py-1 text-xs text-white/60">
                         +{project.tags.length - 3} more
                       </span>
                     )}
